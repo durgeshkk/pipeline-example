@@ -7,16 +7,20 @@ pipeline{
     // Stages which we will be having in the Pipeline
     stages{
         stage("compile"){
-            sh 'javac Test.java'
+            steps{
+                sh 'javac Test.java'
+            }
         }
 
         stage("run"){
-            sh "java Test"
+            steps{
+                sh "java Test"
+            }
         }
 
         // stage("build"){
         //     // Steps in the Stage
-        //     steps{
+            // steps{
         //         // Here we write scripts like Shell
         //         // By sh means we are on Terminal
         //         sh 'echo "Building Application"'
