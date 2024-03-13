@@ -38,7 +38,25 @@ pipeline{
         //         sh 'echo "Deploying Application"'
         //     }
         // }
-
     }
+
+    // Post Build : 
+    post{
+
+        // Always
+        always{
+            sh 'echo "Always Run - Fail or Success"'
+        }
+
+        // If Success
+        success{
+            sh 'echo "Build Success"'
+        }
+
+        failure{
+            sh 'echo "Build Failed"'
+        }
+    }
+
 
 }
