@@ -4,6 +4,11 @@ pipeline{
     // On which Jenkins agent do we want to execute the Pipeline
     agent any
 
+    // To specify Tools we want to use : We will find this in Manage Jenkins -> Tools
+    tools{
+        maven "maven"
+    }
+
     // Add Env Vars
     environment{
         VERSION_NAME = "1.34"
@@ -12,6 +17,13 @@ pipeline{
     // Stages which we will be having in the Pipeline
     stages{
         stage("compile"){
+            // To add Condition : 
+            // when{
+            //     expression{
+
+            //     }
+            // }
+            
             steps{
                 sh 'javac Test.java'
                 sh 'echo "${VERSION_NAME}"'
