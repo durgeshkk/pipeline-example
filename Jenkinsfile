@@ -1,14 +1,20 @@
 // To mark start of our Pipeline
 pipeline{ 
 
-// On which Jenkins agent do we want to execute the Pipeline
+    // On which Jenkins agent do we want to execute the Pipeline
     agent any
+
+    // Add Env Vars
+    environment{
+        VERSION_NAME = "1.34"
+    }
 
     // Stages which we will be having in the Pipeline
     stages{
         stage("compile"){
             steps{
                 sh 'javac Test.java'
+                sh 'echo "${VERSION_NAME}"'
             }
         }
 
